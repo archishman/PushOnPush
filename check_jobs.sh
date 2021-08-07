@@ -3,7 +3,7 @@ function handle_changed {
     rm -rf .temp
     mv .temp2 .temp
     rm -rf .temp2
-    curl -d "app_key=$APP_KEY&app_secret=$APP_SECRET&content=Positions%20Updated&target_type=app" -X POST https://api.pushed.co/1/push
+    curl -d "app_key=$APP_KEY&app_secret=$APP_SECRET&content=Positions%20Updated&content_extra=$REPO&content_type=url&target_type=app" -X POST https://api.pushed.co/1/push
 }
 function handle_unchanged {
     echo '[' $(date -u) '] Files are identical' >> log.txt
