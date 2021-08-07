@@ -1,3 +1,4 @@
+#!/bin/bash
 function handle_changed {
     echo '[' $(date -u) '] Files have changed' >> log.txt;
     rm -rf .temp
