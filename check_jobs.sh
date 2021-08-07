@@ -15,7 +15,7 @@ function check_updates {
 export $(cat .env | xargs)
 while true
 do
-    SLEEPTIME=${1:-DEFAULTVALUE} 
+    SLEEPTIME=${1:-3600} 
     check_updates
     cmp --silent .temp .temp2 && handle_unchanged || handle_changed;
     sleep SLEEPTIME;
