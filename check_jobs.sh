@@ -18,5 +18,5 @@ do
     SLEEPTIME=${1:-3600} 
     check_updates
     cmp --silent .temp .temp2 && handle_unchanged || handle_changed;
-    sleep SLEEPTIME;
+    sleep $SLEEPTIME;
 done
