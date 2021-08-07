@@ -10,12 +10,13 @@ function handle_unchanged {
     rm -rf .temp2
 }
 function check_updates {
-    git ls-remote https://github.com/coderQuad/New-Grad-Positions-2022.git | head -n 1 | awk '{print $1;}' > ./.temp2
+    git ls-remote $REPO | head -n 1 | awk '{print $1;}' > ./.temp2
 }
 export $(cat .env | xargs)
 while true
 do
+    SLEEPTIME=${1:-DEFAULTVALUE} 
     check_updates
     cmp --silent .temp .temp2 && handle_unchanged || handle_changed;
-    sleep 5;
+    sleep SLEEPTIME;
 done
